@@ -1,11 +1,11 @@
-@extends('layouts.default')
+@extends('layouts.app')
 @section('content')
     <div class="card mt-4">
         <div class="card-title ml-4 mt-5"><h1>Contact</h1>
             <p>Use this form to contact site owner</p></div>
         <div class="card-body">
-            <form role ="form"  method="POST" action="{{route('contact.store')}}">
-                @csrf
+            <form action="/contact" method="post" action="{{route('contact.store')}}">
+                {{csrf_field()}}
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
