@@ -16,8 +16,11 @@ class UnitTest extends TestCase
      */
     public function testExample()
     {
-        $user = User::find(1);
-        $user->name = 'Steve Smith';
-        $this->assertTrue($user->save());
-    }
+        $user = new  User();
+        $user->name = "Chopru";
+        $user->email = "Shanky@gmail.com";
+        $user->password = 'dhating';
+        $user->save();
+        $this->assertTrue($user->delete());
+            }
 }
