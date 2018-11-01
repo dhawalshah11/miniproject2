@@ -14,13 +14,25 @@ class UnitTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    public function testUpdate()
+    {
+        $user = User::find(1);
+        $user->name = 'Steve Smith';
+        $this->assertTrue($user->save());
+    }
+    public function testDelete()
     {
         $user = new  User();
-        $user->name = "Chopru";
-        $user->email = "Shanky@gmail.com";
-        $user->password = 'dhating';
+        $user->name = "Dhawal";
+        $user->email = "Dhawal@gmail.com";
+        $user->password = 'qwerty';
         $user->save();
         $this->assertTrue($user->delete());
-            }
+    }
+    public function testCount()
+    {
+        $user = User::all();
+        $recordsCount = $user->count();
+        $this->assertEquals(50, $recordsCount);
+    }
 }
