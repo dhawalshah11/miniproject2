@@ -65,6 +65,12 @@ class UnitTest extends TestCase
         $carRecordsCount = $cars->count();
         $this->assertEquals(50,$carRecordsCount);
     }
+    public function test_DataTypeCar()
+    {
+        $cars = car::inRandomOrder()->first();
+        $year = (int)$cars->Year;
+        $this->assertInternalType("int", $year);
+    }
     public function test_InsertCar()
     {
         $cars= new car();
