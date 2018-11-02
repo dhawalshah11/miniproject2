@@ -26,3 +26,6 @@ Route::post('/contact', 'ContactController@store')->name('contact.store');
 Route::get('/thanks/{name}', 'ContactController@thankyou')->name('thankyou');
 
 Route::get('/about', 'AboutController@about')->name('about');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
