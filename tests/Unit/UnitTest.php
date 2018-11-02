@@ -44,20 +44,28 @@ class UnitTest extends TestCase
         $user->password = "123456";
         $this->assertTrue($user->save());
     }
-    public function test_Example()
-    {
-        $car= new car();
-        $car->make = 'Honda';
-        $car->model = 'City';
-        $car->year = '2009';
-        $this->assertTrue($car->save());
-    }
-    public function Test_UpdateCar()
+    public function test_UpdateCar()
     {
         $car = car::find(1);
         $car->year = '2000';
         $this->assertTrue($car->save());
     }
+    public function test_DeleteCar()
+    {
+        $cars= new car();
+        $cars->make = 'Honda';
+        $cars->model = 'City';
+        $cars->year = '2009';
+        $cars->save();
+        $this->assertTrue($cars->delete());
+    }
+    public function test_CountCar()
+    {
+        $cars = car::all();
+        $carRecordsCount = $cars->count();
+        $this->assertEquals(50,$carRecordsCount);
+    }
+
     public function test_InsertCar()
     {
         $cars= new car();
@@ -66,4 +74,5 @@ class UnitTest extends TestCase
         $cars->year = '2009';
         $this->assertTrue($cars->save());
     }
+
 }
