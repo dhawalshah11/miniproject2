@@ -23,9 +23,9 @@ class UnitTest extends TestCase
     public function testDelete()
     {
         $user = new  User();
-        $user->name = "Dhawal";
-        $user->email = "Dhawal@gmail.com";
-        $user->password = 'qwerty';
+        $user->name = "Kaka";
+        $user->email = "Chodu@gmail.com";
+        $user->password = 'ping';
         $user->save();
         $this->assertTrue($user->delete());
     }
@@ -34,5 +34,13 @@ class UnitTest extends TestCase
         $user = User::all();
         $recordsCount = $user->count();
         $this->assertEquals(50, $recordsCount);
+    }
+    public function testInsert()
+    {
+        $user = new User();
+        $user->name = "Dhawal Jayesh Shah";
+        $user->email = "djshah@gmail.com";
+        $user->password = "123456";
+        $this->assertTrue($user->save());
     }
 }
