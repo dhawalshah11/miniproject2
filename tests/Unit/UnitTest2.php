@@ -21,4 +21,10 @@ class UnitTest2 extends TestCase
         $car->year = '2009';
         $this->assertTrue($car->save());
     }
+    public function UpdateCarTest()
+    {
+        $car = Cars::find(1);
+        $car->year = '2000';
+        $this->assertTrue($car->save());
+    }
 }
