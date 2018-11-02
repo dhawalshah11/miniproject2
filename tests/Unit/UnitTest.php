@@ -76,6 +76,12 @@ class UnitTest extends TestCase
         $cars = car::inRandomOrder()->first();
         $this->assertContains($cars->Make, ["Honda", "Ford", "Toyota"]);
     }
+    public function test_ModelCar()
+    {
+        $cars = car::inRandomOrder()->first();
+        $model = $cars->Model;
+        $this->assertInternalType("string", $model);
+    }
     public function test_InsertCar()
     {
         $cars= new car();
